@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>ESLab1</title>
+	<script type="text/javascript">
+    	var byId = function(id){return document.getElementById(id);};
+    </script>
+
+</head>
+
+<body>
+	
+	Account : <input type="text" id="account"><br>
+	Password : <input type="text" id="password"><br>
+	<button id="sign_up_button">SIGN UP</button>
+	<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+	<script>
+		// Initialize Firebase
+		var config = {
+			apiKey: "AIzaSyD2PqrzzHqV3ufERgB9PNlk9D1ciyQ6S1I",
+			authDomain: "eslab1-92fd6.firebaseapp.com",
+			databaseURL: "https://eslab1-92fd6.firebaseio.com",
+			projectId: "eslab1-92fd6",
+			storageBucket: "eslab1-92fd6.appspot.com",
+			messagingSenderId: "141786087397"
+		};
+		firebase.initializeApp(config);
+		byId("sign_up_button").addEventListener("click", function(){
+			firebase.auth().createUserWithEmailAndPassword(byId("account").value, byId("password").value).catch(function(error) {
+			// Handle Errors here.
+			var errorCode = error.code;
+			var errorMessage = error.message;
+			// ...
+			});
+		});
+		
+	</script>
+</body>
+
+
+
+</html>

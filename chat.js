@@ -9,7 +9,24 @@ var config = {
 };
 firebase.initializeApp(config);
 
+var user = firebase.auth().currentUser;
 
+if (user != null) {
+  // User is signed in.
+
+  byId("send_button").addEventListener("click", function(){
+      rootRef.push({
+	  user: user.displayName,
+	  message:byId("message").value,
+	  time:getTime()
+      });
+      byId("message").value = ''
+  });
+	
+} else {
+  // No user is signed in.
+  alert("You are not logged in.")
+}
 
 
 
@@ -23,11 +40,3 @@ rootRef.on('child_added',function(snapshot){
 	cell2.innerHTML = snapshot.val().message;
 	cell3.innerHTML = snapshot.val().time;
 })
-byId("send_button").addEventListener("click", function(){
-	rootRef.push({
-		user:byId("username").value,
-		message:byId("message").value,
-		time:getTime()
-	});
-	byId("message").value = ''
-});

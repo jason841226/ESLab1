@@ -18,11 +18,14 @@ rootRef.on('child_added',function(snapshot){
 	var row = byId("myTable").insertRow(-1);
 	var cell1 = row.insertCell(0);
 	var cell2 = row.insertCell(1);
-	cell1.innerHTML = snapshot.val().message;
-	cell2.innerHTML = snapshot.val().time;
+	var cell3 = row.insertCell(2);
+	cell1.innerHTML = snapshot.val().username;
+	cell2.innerHTML = snapshot.val().message;
+	cell3.innerHTML = snapshot.val().time;
 })
 byId("send_button").addEventListener("click", function(){
 	rootRef.push({
+		user:byId("username").value,
 		message:byId("message").value,
 		time:getTime()
 	});

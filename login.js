@@ -8,9 +8,11 @@ var config = {
   messagingSenderId: "141786087397"
 };
 firebase.initializeApp(config);
+var errorflag=0;
 byId("login_button").addEventListener("click", function(){
   firebase.auth().signInWithEmailAndPassword(byId("account").value, byId("password").value).catch(function(error) {
     // Handle Errors here.
+    errorflag=1;
     var errorCode = error.code;
     var errorMessage = error.message;
   switch (errorCode) {
@@ -31,5 +33,6 @@ byId("login_button").addEventListener("click", function(){
   }
   console.log(error);
   });
-  window.location.replace("https://jason841226.github.io/ESLab1/chat.html");
+  if(errorflag=false)
+    window.location.replace("https://jason841226.github.io/ESLab1/chat.html");
 });

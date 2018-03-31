@@ -13,7 +13,23 @@ byId("login_button").addEventListener("click", function(){
     // Handle Errors here.
     var errorCode = error.code;
     var errorMessage = error.message;
-    // ...
+  switch (errorCode) {
+    case "auth/invalid-email":
+      alert("Invalid email.");
+      break;
+    case "auth/user-disabled":
+      alert("This user is disabled.");
+      break;
+    case "auth/user-not-found":
+      alert("User not found.");
+      break;
+    case "auth/wrong-password":
+      alert("Wrong password.");
+      break;
+    default:
+      alert(errorMessage);
+  }
+  console.log(error);
   });
   window.location.replace("https://jason841226.github.io/ESLab1/chat.html");
 });

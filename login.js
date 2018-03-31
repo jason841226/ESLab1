@@ -31,5 +31,6 @@ byId("login_button").addEventListener("click", function(){
   }
   console.log(error);
   });
+  alert("aaa");
   window.location.replace("https://jason841226.github.io/ESLab1/chat.html");
 });

@@ -1,5 +1,4 @@
 import React from 'react';
-import ChatApp from './ChatApp';
 
 class App extends React.Component {
   constructor(props) {
@@ -21,16 +20,11 @@ class App extends React.Component {
   }
 
   render() {
-    if (this.state.submitted) {
-      // Form was submitted, now show the main App
-      return (
-        <ChatApp username={this.state.username} />
-      );
-    }
+    
 
     // Initial page load, show a simple login form
     return (
-      <form onSubmit={this.usernameSubmitHandler} className="username-container">
+      <form onSubmit={this.usernameSubmitHandler}>
         <h1>React Instant Chat</h1>
         <div>
           <input

@@ -10,6 +10,12 @@ var config = {
 firebase.initializeApp(config);
 
 
+auth.onAuthStateChanged(function(user) {
+    console.log('authStateChanged', user);
+    if (user) {
+      console.log("Welcome UID:" + user.uid);
+    }
+  });
 
 
 

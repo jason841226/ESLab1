@@ -1,45 +1,20 @@
-import React from 'react';
-
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { username: '' };
-
-    // Bind 'this' to event handlers. React ES6 does not do this by default
-    this.usernameChangeHandler = this.usernameChangeHandler.bind(this);
-    this.usernameSubmitHandler = this.usernameSubmitHandler.bind(this);
-  }
-
-  usernameChangeHandler(event) {
-    this.setState({ username: event.target.value });
-  }
-
-  usernameSubmitHandler(event) {
-    event.preventDefault();
-    this.setState({ submitted: true, username: this.state.username });
-  }
-
-  render() {
-    
-
-    // Initial page load, show a simple login form
-    return (
-      <form onSubmit={this.usernameSubmitHandler}>
-        <h1>React Instant Chat</h1>
-        <div>
-          <input
-            type="text"
-            onChange={this.usernameChangeHandler}
-            placeholder="Enter a username..."
-            required />
-        </div>
-        <input type="submit" value="Submit" />
-      </form>
-    );
-  }
-
-}
-App.defaultProps = {
+// Initialize Firebase
+var config = {
+  apiKey: "AIzaSyD2PqrzzHqV3ufERgB9PNlk9D1ciyQ6S1I",
+  authDomain: "eslab1-92fd6.firebaseapp.com",
+  databaseURL: "https://eslab1-92fd6.firebaseio.com",
+  projectId: "eslab1-92fd6",
+  storageBucket: "eslab1-92fd6.appspot.com",
+  messagingSenderId: "141786087397"
 };
-
-export default App;
+firebase.initializeApp(config);
+byId("login_button").addEventListener("click", function(){
+  firebase.auth().signInWithEmailAndPassword(byId("account").value, byId("password").value).catch(function(error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    // ...
+  });
+  window.location.replace("https://jason841226.github.io/ESLab1/chat.html");
+});
+		

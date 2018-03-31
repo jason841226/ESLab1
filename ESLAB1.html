@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>ESLab1</title>
+
+	<script type="text/javascript">
+    	var byId = function(id){return document.getElementById(id);};
+    	function startTime() {
+		    var d = new Date();
+		    var h = checkTime(d.getHours());
+		    var m = checkTime(d.getMinutes());
+		    var s = checkTime(d.getSeconds());
+
+		    var c = document.querySelector('clock');
+		    c.innerHTML=[h,m,s].join(':');
+		    setTimeout(startTime, 100);
+		}
+		function getTime() {
+			var d = new Date();
+		    var h = checkTime(d.getHours());
+		    var m = checkTime(d.getMinutes());
+		    var s = checkTime(d.getSeconds());
+
+		    return [h,m,s].join(':');
+		}
+		function checkTime(i) {
+			return i < 10 ? '0'+i : i;
+		}
+ 	</script>
+</head>
+
+
+
+<body onload="startTime()">
+	Test : <test></test><br>
+	Clock : <clock></clock><br>
+	message : <input type="text" id="message">
+	<button id="send_button">SEND</button>
+	<table id="myTable">
+		<tr>
+			<td>Message</td>
+			<td>Time</td>
+		</tr>
+	</table>
+
+	<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+	<script>
+		// Initialize Firebase
+		var config = {
+			apiKey: "AIzaSyD2PqrzzHqV3ufERgB9PNlk9D1ciyQ6S1I",
+			authDomain: "eslab1-92fd6.firebaseapp.com",
+			databaseURL: "https://eslab1-92fd6.firebaseio.com",
+			projectId: "eslab1-92fd6",
+			storageBucket: "eslab1-92fd6.appspot.com",
+			messagingSenderId: "141786087397"
+		};
+		firebase.initializeApp(config);
+
+		var rootRef = firebase.database().ref().child('messages')
+		rootRef.on('child_added',function(snapshot){
+			var row = byId("myTable").insertRow(-1);
+			var cell1 = row.insertCell(0);
+			var cell2 = row.insertCell(1);
+			cell1.innerHTML = snapshot.val().message;
+			cell2.innerHTML = snapshot.val().time;
+		})
+		byId("send_button").addEventListener("click", function(){
+			rootRef.push({
+				message:byId("message").value,
+				time:getTime()
+			});
+			byId("message").value = ''
+		});
+	</script>
+</body>
+
+</html>

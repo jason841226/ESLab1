@@ -15,5 +15,5 @@ byId("login_button").addEventListener("click", function(){
     var errorMessage = error.message;
     // ...
   });
-  window.location.replace("https://jason841226.github.io/ESLab1/chat.html?username="+account);
+  window.location.replace("https://jason841226.github.io/ESLab1/chat.html");
 });

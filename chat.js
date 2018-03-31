@@ -10,13 +10,25 @@ var config = {
 firebase.initializeApp(config);
 
 
-firebase.auth().onAuthStateChanged(function(user) {
-    console.log('authStateChanged', user);
-    if (user) {
-      console.log("Welcome UID:" + user.uid);
-    }
-  });
 
+firebase.auth().onAuthStateChanged(function(user) {
+	console.log('authStateChanged', user);
+  if (user) {
+    // User is signed in.
+	  console.log("Welcome UID:" + user.uid);
+    var displayName = user.displayName;
+    var email = user.email;
+    var emailVerified = user.emailVerified;
+    var photoURL = user.photoURL;
+    var isAnonymous = user.isAnonymous;
+    var uid = user.uid;
+    var providerData = user.providerData;
+    // ...
+  } else {
+    // User is signed out.
+    // ...
+  }
+});
 
 
 var rootRef = firebase.database().ref().child('messages')

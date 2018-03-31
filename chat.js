@@ -9,11 +9,6 @@ var config = {
 };
 firebase.initializeApp(config);
 
-var authData = firebase.getAuth();
-
-if (authData) {
-  console.log( "Authenticated user with uid:", authData.uid);
-}
 
 
 

@@ -12,7 +12,7 @@ firebase.initializeApp(config);
 var authData = ref.getAuth();
 
 if (authData) {
-  console.log("Authenticated user with uid:", authData.uid);
+  console.log( "Authenticated user with uid:", authData.uid);
 }
 
 

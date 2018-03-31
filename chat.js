@@ -19,7 +19,7 @@ rootRef.on('child_added',function(snapshot){
 	var cell1 = row.insertCell(0);
 	var cell2 = row.insertCell(1);
 	var cell3 = row.insertCell(2);
-	cell1.innerHTML = snapshot.val().username;
+	cell1.innerHTML = snapshot.val().user;
 	cell2.innerHTML = snapshot.val().message;
 	cell3.innerHTML = snapshot.val().time;
 })

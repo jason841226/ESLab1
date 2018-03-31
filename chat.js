@@ -8,25 +8,12 @@ var config = {
 	messagingSenderId: "141786087397"
 };
 firebase.initializeApp(config);
-firebase.auth().onAuthStateChanged(function(user) {
-  if (user) {
-    // User is signed in.
-    var displayName = user.displayName;
-    var email = user.email;
-    var emailVerified = user.emailVerified;
-    var photoURL = user.photoURL;
-    var isAnonymous = user.isAnonymous;
-    var uid = user.uid;
-    var providerData = user.providerData;
-	  console.log(email);
-	  console.log(displayName);
-    byId("user").innerHTML=email;
-  } else {
-    // User is signed out.
-	  alert("aaa");
-    // ...
-  }
-});
+
+var authData = ref.getAuth();
+
+if (authData) {
+  console.log("Authenticated user with uid:", authData.uid);
+}
 
 
 

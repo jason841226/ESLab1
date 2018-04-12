@@ -31,9 +31,4 @@ byId("login_button").addEventListener("click", function(){
   }
   console.log(error);
   });
-  var errflag=0;
-  var user = firebase.auth().currentUser;
-  if (user != null){
-    window.location.replace("https://jason841226.github.io/ESLab1/chat.html");
-  }
 });

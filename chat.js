@@ -24,7 +24,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 	  byId("send_button").addEventListener("click", function(){
 	      rootRef.push({
-		  user: user.displayName,
+		  user: user.email,
 		  message:byId("message").value,
 		  time:getTime()
 	      });

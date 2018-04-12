@@ -35,6 +35,5 @@ if (user != null) {
 	
 } else {
   // No user is signed in.
-  alert("You are not logged in.")
   window.location.replace("https://jason841226.github.io/ESLab1/login.html");
 }

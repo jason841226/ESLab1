@@ -10,7 +10,7 @@ var config = {
 firebase.initializeApp(config);
 alert("CLICK LOGIN");
 byId("login_button").addEventListener("click", function(){
-
+  
   firebase.auth().signInWithEmailAndPassword(byId("account").value, byId("password").value).catch(function(error) {
     // Handle Errors here.
     var errorCode = error.code;

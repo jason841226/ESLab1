@@ -14,7 +14,7 @@ var user = firebase.auth().currentUser;
 if (user != null) {
   // User is signed in.
   alert(user.email);
-  byId("username").innerHTML=user.email;
+  byId("user").innerHTML=user.email;
   var rootRef = firebase.database().ref().child('messages')
   rootRef.on('child_added',function(snapshot){
 	var row = byId("myTable").insertRow(-1);

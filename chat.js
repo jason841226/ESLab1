@@ -7,6 +7,7 @@ var config = {
   messagingSenderId: "141786087397"
 };
 firebase.initializeApp(config);
+StartTime();
 firebase.auth().onAuthStateChanged(function(user) {
 	if (user != null) {
 	  // User is signed in.

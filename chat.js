@@ -37,4 +37,4 @@ firebase.auth().onAuthStateChanged(function(user) {
 	  // No user is signed in.
 	  //window.location.replace("https://jason841226.github.io/ESLab1/login.html");
 	}
-}
+})

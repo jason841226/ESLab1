@@ -10,7 +10,6 @@ firebase.initializeApp(config);
 firebase.auth().onAuthStateChanged(function(user) {
 	if (user != null) {
 	  // User is signed in.
-	  alert(user.email);
 	  byId("user").innerHTML=user.email;
 	  var rootRef = firebase.database().ref().child('messages')
 	  rootRef.on('child_added',function(snapshot){

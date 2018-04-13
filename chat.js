@@ -21,7 +21,17 @@ firebase.auth().onAuthStateChanged(function(user) {
 		cell2.innerHTML = snapshot.val().message;
 		cell3.innerHTML = snapshot.val().time;
 	  })
-
+	
+	 byId("logout").addEventListener("click", function(){
+		firebase.auth().signOut().then(function() {
+	  	// Sign-out successful.
+			alert("You have successfully logged out.");
+		}, function(error) {
+		// An error happened.
+			alert(error.message);
+	 	})
+	 });
+	 	
 	  byId("send_button").addEventListener("click", function(){
 	      rootRef.push({
 		  user: user.email,

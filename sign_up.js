@@ -17,7 +17,7 @@ byId("sign_up_button").addEventListener("click", function(){
 	// ...
 	});
 	//TODO:redirect to "https://jason841226.github.io/ESLab1/index.html"
-	window.location.replace("https://jason841226.github.io/ESLab1/");
+	//window.location.replace("https://jason841226.github.io/ESLab1/");
 });
 
 // Google Sign-in
@@ -26,5 +26,5 @@ byId("google_sign_in_button").addEventListener("click", function(){
 	firebase.auth().useDeviceLanguage();
 	firebase.auth().signInWithRedirect(provider);
 	//TODO:redirect to "https://jason841226.github.io/ESLab1/index.html"
-	window.location.replace("https://jason841226.github.io/ESLab1/");
+	//window.location.replace("https://jason841226.github.io/ESLab1/");
 });

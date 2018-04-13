@@ -8,6 +8,7 @@ var config = {
   messagingSenderId: "141786087397"
 };
 firebase.initializeApp(config);
+
 byId("login_button").addEventListener("click", function(){
   
   firebase.auth().signInWithEmailAndPassword(byId("account").value, byId("password").value).catch(function(error) {
@@ -33,3 +34,7 @@ byId("login_button").addEventListener("click", function(){
   console.log(error);
   });
 });
+byId("login_button").addEventListener("click", function(){
+  window.location = "http://www.yoururl.com"
+}
+

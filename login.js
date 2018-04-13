@@ -34,7 +34,7 @@ byId("login_button").addEventListener("click", function(){
   console.log(error);
   });
 });
-byId("login_button").addEventListener("click", function(){
+byId("sign_up_button").addEventListener("click", function(){
   window.location = "http://www.yoururl.com"
 }
 

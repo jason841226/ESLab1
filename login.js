@@ -36,5 +36,5 @@ byId("login_button").addEventListener("click", function(){
 });
 byId("sign_up_button").addEventListener("click", function(){
   window.location = "https://jason841226.github.io/ESLab1/sign_up.html"
-}
+});
 

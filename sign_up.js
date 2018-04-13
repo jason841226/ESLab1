@@ -13,6 +13,7 @@ byId("sign_up_button").addEventListener("click", function(){
 	// Handle Errors here.
 	var errorCode = error.code;
 	var errorMessage = error.message;
+		alert(error.message);
 	// ...
 	});
 	//TODO:redirect to "https://jason841226.github.io/ESLab1/index.html"

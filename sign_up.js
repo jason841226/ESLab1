@@ -16,6 +16,7 @@ byId("sign_up_button").addEventListener("click", function(){
 		alert(error.message);
 	// ...
 	});
+	alert("Successfully registered!");
 	//TODO:redirect to "https://jason841226.github.io/ESLab1/index.html"
 	//window.location.replace("http://localhost:8080/Desktop/");
 });

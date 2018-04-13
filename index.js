@@ -1,3 +1,5 @@
+//TODO: fix bug
+
 var config = {
   apiKey: "AIzaSyD2PqrzzHqV3ufERgB9PNlk9D1ciyQ6S1I",
   authDomain: "eslab1-92fd6.firebaseapp.com",
